@@ -184,7 +184,7 @@ func (sd *StreamDeck) spawnMessageReader() {
 			if err != nil {
 				log.Fatal("onKeyDown event unmarshal", err)
 			}
-			err = sd.onKeyDown(&ev)
+			err = sd.OnKeyDown(&ev)
 			if err != nil {
 				log.Fatal("onKeyDown", err)
 			}
