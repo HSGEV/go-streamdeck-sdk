@@ -22,6 +22,7 @@ type EventDelegate interface {
 	OnSendToPlugin(*EvSendToPlugin)
 	OnApplicationDidLaunch(*EvApplication)
 	OnApplicationDidTerminate(*EvApplication)
+	OnKeyDown(*KeyDown)
 }
 
 // StreamDeck SDK APIs
@@ -176,6 +177,16 @@ func (sd *StreamDeck) spawnMessageReader() {
 			err = sd.onSendToPlugin(&ev)
 			if err != nil {
 				log.Fatal("onSendToPlugin", err)
+			}
+		case "keyDown":
+			var ev KeyDown
+			err := json.Unmarshal(message, &ev)
+			if err != nil {
+				log.Fatal("onKeyDown event unmarshal", err)
+			}
+			err = sd.onKeyDown(&ev)
+			if err != nil {
+				log.Fatal("onKeyDown", err)
 			}
 		case "applicationDidLaunch":
 			var ev EvApplication
