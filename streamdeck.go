@@ -22,7 +22,7 @@ type EventDelegate interface {
 	OnSendToPlugin(*EvSendToPlugin)
 	OnApplicationDidLaunch(*EvApplication)
 	OnApplicationDidTerminate(*EvApplication)
-	OnKeyDown(*KeyDown)
+	OnKeyDown(*EvKeyDown)
 }
 
 // StreamDeck SDK APIs
@@ -179,7 +179,7 @@ func (sd *StreamDeck) spawnMessageReader() {
 				log.Fatal("onSendToPlugin", err)
 			}
 		case "keyDown":
-			var ev KeyDown
+			var ev EvKeyDown
 			err := json.Unmarshal(message, &ev)
 			if err != nil {
 				log.Fatal("onKeyDown event unmarshal", err)
