@@ -31,7 +31,7 @@ type EvWillAppear struct {
 	Payload EvWillAppearPayload `json:"payload"`
 }
 
-type evKeyDown struct {
+type EvKeyDown struct {
 	Action  string      `json:"action"`
 	Event   string      `json:"event"`
 	Context string      `json:"context"`
