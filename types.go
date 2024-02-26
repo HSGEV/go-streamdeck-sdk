@@ -31,13 +31,6 @@ type EvWillAppear struct {
 	Payload EvWillAppearPayload `json:"payload"`
 }
 
-type EvKeyDown struct {
-	Action  string      `json:"action"`
-	Event   string      `json:"event"`
-	Context string      `json:"context"`
-	Payload interface{} `json:"payload"`
-}
-
 // EvWillDisappearPayload is the Payload structure from willDisappear event
 type EvWillDisappearPayload struct {
 	EvWillAppearPayload
