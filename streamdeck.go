@@ -22,7 +22,7 @@ type EventDelegate interface {
 	OnSendToPlugin(*EvSendToPlugin)
 	OnApplicationDidLaunch(*EvApplication)
 	OnApplicationDidTerminate(*EvApplication)
-	OnKeyDown(*EvKeyDown)
+	OnKeyDown(*EvSendToPlugin)
 }
 
 // StreamDeck SDK APIs
