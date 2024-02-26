@@ -184,9 +184,8 @@ func (sd *StreamDeck) spawnMessageReader() {
 			if err != nil {
 				log.Fatal("onKeyDown event unmarshal", err)
 			}
-			err = sd.OnKeyDown(&ev)
-			if err != nil {
-				log.Fatal("onKeyDown", err)
+			if sd.delegate != nil {
+				sd.delegate.OnKeyDown(&ev)
 			}
 		case "applicationDidLaunch":
 			var ev EvApplication
