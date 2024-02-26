@@ -179,7 +179,7 @@ func (sd *StreamDeck) spawnMessageReader() {
 				log.Fatal("onSendToPlugin", err)
 			}
 		case "keyDown":
-			var ev EvKeyDown
+			var ev EvSendToPlugin
 			err := json.Unmarshal(message, &ev)
 			if err != nil {
 				log.Fatal("onKeyDown event unmarshal", err)
